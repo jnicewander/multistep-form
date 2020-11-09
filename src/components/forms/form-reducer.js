@@ -7,14 +7,10 @@ export const DefaultForm = {
   phoneNumber: '',
   email: '',
   companyName: '',
-  questionsGroup1: {
-    question1: '',
-    question2: '',
-  },
-  questionsGroup2: {
-    question3: '',
-    question4: '',
-  },
+  question1: '',
+  question2: '',
+  question3: '',
+  question4: '',
 }
 
 export const FormReducer = (form, { type, payload }) => {
@@ -27,18 +23,13 @@ export const FormReducer = (form, { type, payload }) => {
     case 'QUESTIONS_GROUP_ONE':
       return {
         ...form,
-        questionsGroup1: {
-          ...form.questionsGroup1,
-          ...payload,
-        }
+        ...payload,
+
       }
     case 'QUESTIONS_GROUP_TWO':
       return {
         ...form,
-        questionsGroup2: {
-          ...form.questionsGroup2,
-          ...payload,
-        }
+        ...payload,
       }
     default:
       return form

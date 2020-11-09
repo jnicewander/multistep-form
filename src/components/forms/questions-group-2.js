@@ -48,14 +48,14 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
       <Input 
         type='text'
         name='question3'
-        value={form.questionsGroup2.question3}
+        value={form.question3}
         label='Question Three?'
         onChange={(e) => handleChange(e)}
       />
       <Input 
         type='text'
         name='question4'
-        value={form.questionsGroup2.question4}
+        value={form.question4}
         label='Question Four?'
         onChange={(e) => handleChange(e)}
       />
