@@ -19,14 +19,23 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
 
   const handleContinue = (e) => {
     e.preventDefault()
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'web-estimate', ...form })
-    })
-    .then(() => alert('Success!'))
-    .catch(error => alert(error))
-    setStep(step + 1)
+    const formURL = process.env.AWS_ENDPOINT
+    // AJAX Request
+    const xhr = XMLHttpRequest()
+    xhr.open('POST', formURL, true)
+    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8')
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
+    // Send data as JSON
+    xhr.send(JSON.stringify(form))
+    xhr.onloadend = response => {
+      if (response.target.status === 200) {
+        console.log('Success! Now make a Success page.')
+        setStep(step + 1)
+      } else {
+        console.log('ERROR! Something is wrong.')
+        console.log(JSON.parse(response))
+      }
+    }
   }
 
   const handleBack = (e) => {
