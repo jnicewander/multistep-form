@@ -20,12 +20,13 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
   const handleContinue = (e) => {
     const AWS_ENDPOINT = 'https://hl21ta8q51.execute-api.us-east-1.amazonaws.com/Prod/submitForm'
     e.preventDefault()
+
     fetch(AWS_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(form)
+      body: JSON.stringify(form, function replacer(key, value) { return value })
     })
     .then(setStep(step + 1))
     .catch((error) => console.log('Error:', error))
