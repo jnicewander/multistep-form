@@ -3,6 +3,7 @@ import UserDetails from './user-details'
 import QuestionsGroup1 from './questions-group-1'
 import QuestionsGroup2 from './questions-group-2'
 import Completed from './completed'
+import SkipSection from './skip-section'
 
 const FormSteps = (step, setStep, form, setForm) => [
   {
@@ -15,6 +16,17 @@ const FormSteps = (step, setStep, form, setForm) => [
         setForm={setForm}
       />
     ),    
+  },
+  {
+    title: 'Skip Section',
+    content: (
+      <SkipSection 
+        setStep={setStep}
+        step={step}
+        form={form}
+        setForm={setForm}
+      />
+    ),
   },
   {
     title: 'General Info',
