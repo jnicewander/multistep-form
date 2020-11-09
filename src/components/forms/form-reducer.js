@@ -7,6 +7,7 @@ export const DefaultForm = {
   phoneNumber: '',
   email: '',
   companyName: '',
+  hasWebsite: false,
   question1: '',
   question2: '',
   question3: '',
@@ -17,6 +18,11 @@ export const FormReducer = (form, { type, payload }) => {
   switch(type) {
     case 'USER_INFO':
       return {
+        ...form,        
+        ...payload,
+      }
+    case 'SKIP_SECTION':
+      return {
         ...form,
         ...payload,
       }
@@ -24,7 +30,6 @@ export const FormReducer = (form, { type, payload }) => {
       return {
         ...form,
         ...payload,
-
       }
     case 'QUESTIONS_GROUP_TWO':
       return {
