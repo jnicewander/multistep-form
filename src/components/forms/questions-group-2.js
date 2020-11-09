@@ -2,10 +2,15 @@ import React from 'react'
 import Input from './input'
 import Button from './button'
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+function replacer(name, val) {
+  // convert RegExp to string
+  if ( val && val.constructor === RegExp ) {
+      return val.toString()
+  } else if ( name === 'str' ) { // 
+      return undefined // remove from result
+  } else {
+      return val // return as is
+  }
 }
 
 const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
@@ -19,6 +24,7 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
 
   const handleContinue = (e) => {
     const AWS_ENDPOINT = 'https://hl21ta8q51.execute-api.us-east-1.amazonaws.com/Prod/submitForm'
+    const jsonForm = JSON.stringify(form, replacer, 4)
     e.preventDefault()
 
     fetch(AWS_ENDPOINT, {
@@ -26,7 +32,7 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(form, function replacer(key, value) { return value })
+      body: jsonForm,
     })
     .then(setStep(step + 1))
     .catch((error) => console.log('Error:', error))
