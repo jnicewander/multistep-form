@@ -2,16 +2,7 @@ import React from 'react'
 import Input from './input'
 import Button from './button'
 
-function replacer(name, val) {
-  // convert RegExp to string
-  if ( val && val.constructor === RegExp ) {
-      return val.toString()
-  } else if ( name === 'str' ) { // 
-      return undefined // remove from result
-  } else {
-      return val // return as is
-  }
-}
+
 
 const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
 
@@ -23,16 +14,14 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
   }
 
   const handleContinue = (e) => {
-    const AWS_ENDPOINT = 'https://hl21ta8q51.execute-api.us-east-1.amazonaws.com/Prod/submitForm'
-    const jsonForm = JSON.stringify(form, replacer, 4)
+    const AWS_ENDPOINT = 'https://hl21ta8q51.execute-api.us-east-1.amazonaws.com/Prod/submitForm' 
     e.preventDefault()
-
     fetch(AWS_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: jsonForm,
+      body: JSON.stringify(form)
     })
     .then(setStep(step + 1))
     .catch((error) => console.log('Error:', error))
