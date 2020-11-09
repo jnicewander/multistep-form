@@ -18,24 +18,17 @@ const QuestionsGroupTwo =({ step, setStep, form, setForm }) => {
   }
 
   const handleContinue = (e) => {
+    const AWS_ENDPOINT = 'https://hl21ta8q51.execute-api.us-east-1.amazonaws.com/Prod/submitForm'
     e.preventDefault()
-    const formURL = process.env.AWS_ENDPOINT
-    // AJAX Request
-    const xhr = XMLHttpRequest()
-    xhr.open('POST', formURL, true)
-    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8')
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
-    // Send data as JSON
-    xhr.send(JSON.stringify(form))
-    xhr.onloadend = response => {
-      if (response.target.status === 200) {
-        console.log('Success! Now make a Success page.')
-        setStep(step + 1)
-      } else {
-        console.log('ERROR! Something is wrong.')
-        console.log(JSON.parse(response))
-      }
-    }
+    fetch(AWS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    })
+    .then(setStep(step + 1))
+    .catch((error) => console.log('Error:', error))
   }
 
   const handleBack = (e) => {
