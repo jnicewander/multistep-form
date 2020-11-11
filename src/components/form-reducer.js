@@ -7,7 +7,7 @@ export const DefaultForm = {
   phoneNumber: '',
   email: '',
   companyName: '',
-  skipNextStep: false,
+  skipNextStep: 'No',
   question1: '',
   question2: '',
   question3: '',

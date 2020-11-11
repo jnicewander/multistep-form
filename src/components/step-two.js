@@ -14,7 +14,7 @@ const StepTwo =({ step, setStep, form, setForm }) => {
 
   const handleContinue = (e) => {
     e.preventDefault()
-    if (form.skipNextStep === "true") {
+    if (form.skipNextStep === "Yes") {
       form.question1 = 'Skipped'
       form.question2 = 'Skipped'
       setStep(step + 2)
@@ -35,15 +35,17 @@ const StepTwo =({ step, setStep, form, setForm }) => {
       <Input 
         type='radio'
         name='skipNextStep'
-        value={true}
+        value='Yes'
         label='Yes'
+        checked={form.skipNextStep === 'Yes'}
         onChange={(e) => handleChange(e)}
       />
       <Input 
         type='radio'
         name='skipNextStep'
-        value={false}
+        value='No'
         label='No'
+        checked={form.skipNextStep === 'No'}
         onChange={(e) => handleChange(e)}
       />
       <Button onClick={handleBack}>Back</Button>      

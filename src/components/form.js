@@ -10,8 +10,7 @@ const Form = () => {
   
   return (
     <div>
-      <h2>{steps[`${step}`].title}</h2>
-      <h3>Step {step + 1}/{steps.length}</h3>
+      <h2>{steps[`${step}`].title} - Step {step + 1}/{steps.length}</h2>
       <div>{steps[`${step}`].content}</div>
     </div>
   )
