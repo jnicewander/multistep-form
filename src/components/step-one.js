@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from './input'
+import TextInput from './text-input'
 import Button from './button'
 
 const StepOne = ({ step, setStep, form, setForm }) => {
@@ -18,36 +18,33 @@ const StepOne = ({ step, setStep, form, setForm }) => {
 
   return (
     <form onSubmit={handleContinue}>
-      <Input 
-        type='text'
+      <TextInput
         name='firstName'
         value={form.firstName}
         label='First Name'
         onChange={(e) => handleChange(e)}
       />
-      <Input 
-        type='text'
+      <TextInput
         name='lastName'
         value={form.lastName}
         label='Last Name'
         onChange={(e) => handleChange(e)}
       />
-      <Input 
+      <TextInput 
         type='tel'
         name='phoneNumber'
         value={form.phoneNumber}
         label='Phone Number'
         onChange={(e) => handleChange(e)}
       />
-      <Input 
+      <TextInput 
         type='email'
         name='email'
         value={form.email}
         label='Email Address'
         onChange={(e) => handleChange(e)}
       />
-      <Input 
-        type='text'
+      <TextInput
         name='companyName'
         value={form.companyName}
         label='Company Name'
