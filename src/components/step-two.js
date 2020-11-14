@@ -66,13 +66,13 @@ const StepTwo =({ step, setStep, form, setForm }) => {
       <br />
       <small>You can always go back.</small>
       <ul>
-        {radioGroupData.map(data => (
-          <li key={data.value}>
+        {radioGroupData.values.map(value => (
+          <li key={value}>
             <RadioInput 
-              name={data.name}
-              value={data.value}
-              label={data.value}
-              checked={form[data.name] === data.value}
+              name={radioGroupData.name}
+              value={value}
+              label={value}
+              checked={form[radioGroupData.name] === value}
               onChange={(e) => handleChange(e)}
             />
           </li>
