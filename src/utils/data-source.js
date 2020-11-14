@@ -26,7 +26,6 @@ export const textInputData = [
     label: 'Company',
   },
 ]
-
 // Checkboxes
 export const checkboxData = [
   {
@@ -55,5 +54,28 @@ export const radioGroupData = [
   {
     name: 'skipNextStep',
     value: 'No',
+  },
+]
+
+export const questionData = [
+  {
+    type: 'text',
+    name: 'question1',
+    label: 'Question one?',
+  },
+  {
+    type: 'text',
+    name: 'question2',
+    label: 'Question two?',
+  },
+  {
+    type: 'text',
+    name: 'question3',
+    label: 'Question three?',
+  },
+  {
+    type: 'text',
+    name: 'question4',
+    label: 'Question four?',
   },
 ]

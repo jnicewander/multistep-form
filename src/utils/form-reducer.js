@@ -4,7 +4,7 @@
 export const DefaultForm = {
   firstName: '',
   lastName: '',
-  phoneNumber: '',
+  phone: '',
   email: '',
   companyName: '',
   checkboxOne: '',
