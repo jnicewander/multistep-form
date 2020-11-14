@@ -3,6 +3,8 @@ import Button from './button'
 import Checkbox from './checkbox'
 import RadioInput from './radio-input'
 
+import { checkboxData, radioGroupData } from './data-source'
+
 // If the user selects 'yes' here, we skip the next step.
 const StepTwo =({ step, setStep, form, setForm }) => {
 
@@ -11,6 +13,20 @@ const StepTwo =({ step, setStep, form, setForm }) => {
       type: 'STEP_TWO',
       payload: { [target.name]: target.value },
     })
+  }
+
+  const handleCheck = ({ target }) => {
+    if (!form[target.name] || form[target.name].length === 0) {
+      setForm({
+        type: 'STEP_TWO',
+        payload: { [target.name]: target.value }
+      })
+    } else {
+      setForm({
+        type: 'STEP_TWO',
+        payload: { [target.name]: '' }
+      })
+    }
   }
 
   const handleContinue = (e) => {
@@ -31,52 +47,38 @@ const StepTwo =({ step, setStep, form, setForm }) => {
 
   return (
     <form onSubmit={handleContinue}>
-      <span>Choose any checkboxes you're fond of.</span>
-      <Checkbox 
-        name='checkboxOne'
-        value='Checkbox One'
-        label='Checkbox One'
-        checked={form.checkboxOne === 'Checkbox One'}
-        onChange={(e) => handleChange(e)}
-      />
-      <Checkbox 
-        name='checkboxTwo'
-        value='Checkbox Two'
-        label='Checkbox Two'
-        checked={form.checkboxTwo === 'Checkbox Two'}
-        onChange={(e) => handleChange(e)}
-      />
-      <Checkbox 
-        name='checkboxThree'
-        value='Checkbox Three'
-        label='Checkbox Three'
-        checked={form.checkboxThree === 'Checkbox Three'}
-        onChange={(e) => handleChange(e)}
-      />
-      <Checkbox 
-        name='checkboxFour'
-        value='Checkbox Four'
-        label='Checkbox Four'
-        checked={form.checkboxFour === 'Checkbox Four'}
-        onChange={(e) => handleChange(e)}
-      />
+
+    <span>Choose any checkboxes you're fond of.</span>
+      <ul>
+        {checkboxData.map(data => (
+          <li key={data.name} style={{ listStyle: 'none' }}>
+            <Checkbox 
+              name={data.name}
+              value={data.value}
+              label={data.value}
+              checked={form[data.key] === data.value}
+              onChange={(e) => handleCheck(e)}
+            />
+          </li>
+        ))}
+      </ul>
+
       <span>Would you like to skip the next section?</span>
       <br />
-      <small>You can always go back.</small>      
-        <RadioInput           
-          name='skipNextStep'
-          value='Yes'
-          label='Yes'
-          checked={form.skipNextStep === 'Yes'}
-          onChange={(e) => handleChange(e)}
-        />
-        <RadioInput 
-          name='skipNextStep'
-          value='No'
-          label='No'
-          checked={form.skipNextStep === 'No'}
-          onChange={(e) => handleChange(e)}
-        />    
+      <small>You can always go back.</small>
+      <ul>
+        {radioGroupData.map(data => (
+          <li key={data.name} style={{ listStyle: 'none' }}>
+            <RadioInput 
+              name={data.name}
+              value={data.value}
+              label={data.value}
+              checked={form[data.name] === data.value}
+              onChange={(e) => handleChange(e)}
+            />
+          </li>
+        ))}
+      </ul>
       <Button onClick={handleBack}>Back</Button>      
       <Button type='submit'>Continue</Button>
     </form>
