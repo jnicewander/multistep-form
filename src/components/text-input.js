@@ -20,8 +20,7 @@ const TextInput = ({ label, error, ...rest }) => {
   return (
     <Container>
       <Label>{label}</Label>
-      <Input 
-        type='text'
+      <Input
         {...rest} 
       />
     </Container>

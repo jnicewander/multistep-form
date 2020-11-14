@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react'
-import { FormReducer, DefaultForm } from './form-reducer'
+import { FormReducer, DefaultForm } from '../utils/form-reducer'
 import FormSteps from './form-steps'
 
 const Form = () => {

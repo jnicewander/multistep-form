@@ -2,6 +2,8 @@ import React from 'react'
 import TextInput from './text-input'
 import Button from './button'
 
+import { textInputData } from '../utils/data-source'
+
 const StepOne = ({ step, setStep, form, setForm }) => {
   
   const handleChange = ({ target }) => {
@@ -18,38 +20,19 @@ const StepOne = ({ step, setStep, form, setForm }) => {
 
   return (
     <form onSubmit={handleContinue}>
-      <TextInput
-        name='firstName'
-        value={form.firstName}
-        label='First Name'
-        onChange={(e) => handleChange(e)}
-      />
-      <TextInput
-        name='lastName'
-        value={form.lastName}
-        label='Last Name'
-        onChange={(e) => handleChange(e)}
-      />
-      <TextInput 
-        type='tel'
-        name='phoneNumber'
-        value={form.phoneNumber}
-        label='Phone Number'
-        onChange={(e) => handleChange(e)}
-      />
-      <TextInput 
-        type='email'
-        name='email'
-        value={form.email}
-        label='Email Address'
-        onChange={(e) => handleChange(e)}
-      />
-      <TextInput
-        name='companyName'
-        value={form.companyName}
-        label='Company Name'
-        onChange={(e) => handleChange(e)}
-      />
+
+      <ul>
+        {textInputData.map(data => (
+          <li key={data.name} style={{ listStyle: 'none' }}>
+            <TextInput 
+              name={data.name}
+              value={form[data.name]}
+              label={data.label}
+              onChange={(e) => handleChange(e)}
+            />
+          </li>
+        ))}
+      </ul>      
       <Button type='submit'>Continue</Button>
     </form>
   )

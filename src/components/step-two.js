@@ -3,11 +3,10 @@ import Button from './button'
 import Checkbox from './checkbox'
 import RadioInput from './radio-input'
 
-import { checkboxData, radioGroupData } from './data-source'
+import { checkboxData, radioGroupData } from '../utils/data-source'
 
-// If the user selects 'yes' here, we skip the next step.
 const StepTwo =({ step, setStep, form, setForm }) => {
-
+  // TODO: Refactor change handlers into one.
   const handleChange = ({ target }) => {
     setForm({
       type: 'STEP_TWO',
@@ -56,7 +55,7 @@ const StepTwo =({ step, setStep, form, setForm }) => {
               name={data.name}
               value={data.value}
               label={data.value}
-              checked={form[data.key] === data.value}
+              checked={form[data.name] === data.value}
               onChange={(e) => handleCheck(e)}
             />
           </li>
@@ -68,7 +67,7 @@ const StepTwo =({ step, setStep, form, setForm }) => {
       <small>You can always go back.</small>
       <ul>
         {radioGroupData.map(data => (
-          <li key={data.name} style={{ listStyle: 'none' }}>
+          <li key={data.value} style={{ listStyle: 'none' }}>
             <RadioInput 
               name={data.name}
               value={data.value}
