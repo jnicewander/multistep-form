@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 import { FormReducer, DefaultForm } from '../utils/form-reducer'
 import FormSteps from './form-steps'
-import { textInputData, checkboxData, radioGroupData } from '../utils/data-source'
-import { check } from 'prettier'
+import { textInputData, checkboxData, radioGroupData, questionData } from '../utils/data-source'
 
 const Container = styled.div`
   display: flex;
@@ -28,17 +27,23 @@ const Form = () => {
         <h3>Current Form Entries</h3>
         <ul>
           {/* Why can't I destructure inside the map callback? */}
-          {textInputData.map(dataObject => (
-            <li key={dataObject.name}>
-              {dataObject.label}: {form[dataObject.name]}
+          {textInputData.map(data => (
+            <li key={data.name}>
+              {data.label}: {form[data.name]}
             </li>
           ))}
-          {checkboxData.map(dataObject => (
-            <li key={dataObject.name}>
-              {dataObject.value}: 
-              {!form[dataObject.name] || form[dataObject.name].length === 0 
+          {checkboxData.map(data => (
+            <li key={data.name}>
+              {data.value}: 
+              {!form[data.name] || form[data.name].length === 0 
                 ? '' 
-                : 'Checked'}
+                : ' Checked'}
+            </li>
+          ))}
+          <li>Skipped: {form[radioGroupData.name]}</li>
+          {questionData.map((data, index) => (
+            <li key={data.name}>
+              Question {index + 1}: {form[data.name]}
             </li>
           ))}
         </ul>
