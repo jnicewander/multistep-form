@@ -45,18 +45,12 @@ export const checkboxData = [
     value: 'Checkbox Four',
   },
 ]
-// Radio Buttons
-export const radioGroupData = [
-  {
-    name: 'skipNextStep',
-    value: 'Yes',
-  },
-  {
-    name: 'skipNextStep',
-    value: 'No',
-  },
-]
-
+// Radio Button Group
+export const radioGroupData = {
+  name: 'skipNextStep',
+  values: ['Yes', 'No'],
+}
+// Questions
 export const questionData = [
   {
     type: 'text',
