@@ -1,6 +1,7 @@
 import React from 'react'
-import TextInput from './text-input'
-import Button from './button'
+
+import TextInput from '../common/text-input'
+import Button from '../common/button'
 
 import { textInputData } from '../utils/data-source'
 
@@ -23,8 +24,9 @@ const StepOne = ({ step, setStep, form, setForm }) => {
 
       <ul>
         {textInputData.map(data => (
-          <li key={data.name} style={{ listStyle: 'none' }}>
+          <li key={data.name}>
             <TextInput 
+              type={data.type}
               name={data.name}
               value={form[data.name]}
               label={data.label}

@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from './button'
-import Checkbox from './checkbox'
-import RadioInput from './radio-input'
+import Button from '../common/button'
+import Checkbox from '../common/checkbox'
+import RadioInput from '../common/radio-input'
 
 import { checkboxData, radioGroupData } from '../utils/data-source'
 
@@ -50,7 +50,7 @@ const StepTwo =({ step, setStep, form, setForm }) => {
     <span>Choose any checkboxes you're fond of.</span>
       <ul>
         {checkboxData.map(data => (
-          <li key={data.name} style={{ listStyle: 'none' }}>
+          <li key={data.name}>
             <Checkbox 
               name={data.name}
               value={data.value}
@@ -67,7 +67,7 @@ const StepTwo =({ step, setStep, form, setForm }) => {
       <small>You can always go back.</small>
       <ul>
         {radioGroupData.map(data => (
-          <li key={data.value} style={{ listStyle: 'none' }}>
+          <li key={data.value}>
             <RadioInput 
               name={data.name}
               value={data.value}

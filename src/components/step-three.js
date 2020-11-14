@@ -1,6 +1,11 @@
 import React from 'react'
-import TextInput from './text-input'
-import Button from './button'
+
+import TextInput from '../common/text-input'
+import Button from '../common/button'
+
+import { questionData } from '../utils/data-source'
+
+const questionsPartial = questionData.slice(0, 2)
 
 const StepThree =({ step, setStep, form, setForm }) => {
 
@@ -23,18 +28,19 @@ const StepThree =({ step, setStep, form, setForm }) => {
 
   return (
     <form onSubmit={handleContinue}>
-      <TextInput
-        name='question1'
-        value={form.question1}
-        label='Question One?'
-        onChange={(e) => handleChange(e)}
-      />
-      <TextInput
-        name='question2'
-        value={form.question2}
-        label='Question Two?'
-        onChange={(e) => handleChange(e)}
-      />
+      <ul>
+        {questionsPartial.map(data => (
+            <li key={data.name}>
+              <TextInput 
+                type={data.type}
+                name={data.name}
+                value={form[data.name]}
+                label={data.label}
+                onChange={(e) => handleChange(e)}
+              />
+            </li>
+          ))}
+      </ul>
       <Button onClick={handleBack}>Back</Button>      
       <Button type='submit'>Continue</Button>
     </form>

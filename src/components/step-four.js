@@ -1,6 +1,6 @@
 import React from 'react'
-import TextInput from './text-input'
-import Button from './button'
+import TextInput from '../common/text-input'
+import Button from '../common/button'
 import { submitForm } from '../utils/fetch'
 
 
