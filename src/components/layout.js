@@ -1,5 +1,5 @@
 import React from "react"
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -13,6 +13,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+`
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.0875rem 1.45rem;
+`
+
+const Footer = styled.footer`
+  margin-top: 2rem;
 `
 
 const Layout = ({ children }) => {
@@ -29,23 +38,15 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Header siteTitle={data.site.siteMetadata?.title || `Multistep Form`} />
+      <Container>
         <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
+        <Footer>
           © {new Date().getFullYear()}, Built by
           {` `}
           <a href="https://github.com/jnicewander">Justin Nicewander</a>
-        </footer>
-      </div>
+        </Footer>
+      </Container>
     </>
   )
 }
