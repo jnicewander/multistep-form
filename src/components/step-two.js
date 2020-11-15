@@ -32,8 +32,8 @@ const StepTwo =({ form, setForm }) => {
   
 
   return (
-    <form>
-    <span>Choose any checkboxes you're fond of.</span>
+    <>
+      <span>Choose any checkboxes you're fond of.</span>
       <ul>
         {checkboxData.map(data => (
           <li key={data.name}>
@@ -63,7 +63,7 @@ const StepTwo =({ form, setForm }) => {
           </li>
         ))}
       </ul>
-    </form>
+    </>
   )
 }
 

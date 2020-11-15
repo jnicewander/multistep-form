@@ -13,7 +13,7 @@ const StepOne = ({ form, setForm }) => {
 
 
   return (
-    <form>
+    <>
       <ul>
         {textInputData.map(data => (
           <li key={data.name}>
@@ -27,7 +27,7 @@ const StepOne = ({ form, setForm }) => {
           </li>
         ))}
       </ul>      
-    </form>
+    </>
   )
 }
 

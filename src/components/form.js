@@ -4,6 +4,19 @@ import { FormReducer, DefaultForm } from '../utils/form-reducer'
 import FormSteps from './form-steps'
 import Button from '../common/button'
 import { submitForm } from '../utils/fetch'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
 
 const Form = () => {
   let [step, setStep] = useState(0)
@@ -22,8 +35,6 @@ const Form = () => {
     } else {
       setStep(step + 1)
     }
-
-
   }
 
   const handleBack = (e) => {
@@ -32,14 +43,16 @@ const Form = () => {
   }
   
   return (
-    <div>
-      <div>
+    <>
+      <Container>
         <h2>{steps[`${step}`].title} - Step {step + 1}/{steps.length}</h2>
-        <div>{steps[`${step}`].content}</div>
-      </div>
-      <Button onClick={handleBack}>Back</Button>
-      <Button onClick={handleContinue}>{step === 3 ? 'Submit' : 'Continue'}</Button>
-    </div>
+        <form>{steps[`${step}`].content}</form>
+      </Container>
+      <ButtonContainer>
+        <Button onClick={handleBack}>Back</Button>
+        <Button onClick={handleContinue}>{step === 3 ? 'Submit' : 'Continue'}</Button>
+      </ButtonContainer>
+    </>
   )
 }
 

@@ -5,7 +5,7 @@ import StepThree from './step-three'
 import StepFour from './step-four'
 import Complete from './complete'
 
-const FormSteps = (step, setStep, form, setForm) => [
+const FormSteps = (form, setForm) => [
   {
     title: 'Basic User Details',
     content: (

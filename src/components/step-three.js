@@ -14,7 +14,7 @@ const StepThree =({ form, setForm }) => {
   }
 
   return (
-    <form>
+    <>
       <ul>
         {questionsPartial.map(data => (
             <li key={data.name}>
@@ -28,7 +28,7 @@ const StepThree =({ form, setForm }) => {
             </li>
           ))}
       </ul>
-    </form>
+    </>
   )
 }
 

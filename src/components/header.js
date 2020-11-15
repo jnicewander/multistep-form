@@ -4,6 +4,7 @@ import React from "react"
 import styled from 'styled-components'
 
 const Container = styled.header`
+  text-align: center;
   background: black;
   margin-bottom: 1.45rem;
 `
