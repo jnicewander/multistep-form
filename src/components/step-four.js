@@ -1,13 +1,11 @@
 import React from 'react'
 import TextInput from '../common/text-input'
-import Button from '../common/button'
-
 import { questionData } from '../utils/data-source'
-import { submitForm } from '../utils/fetch'
+
 // This could be more dynamic, divide the length of the array into equal parts maybe
 const questionsPartial = questionData.slice(2, 4)
 
-const StepFour =({ step, setStep, form, setForm }) => {
+const StepFour =({ form, setForm }) => {
 
   const handleChange = ({ target }) => {
     setForm({
@@ -16,21 +14,8 @@ const StepFour =({ step, setStep, form, setForm }) => {
     })
   }
 
-  const handleContinue = (e) => {
-    e.preventDefault()
-    // No validation yet
-    submitForm(form)
-    setStep(step + 1)
-
-  }
-
-  const handleBack = (e) => {
-    e.preventDefault()
-    setStep(step - 1)
-  }
-
   return (
-    <form onSubmit={handleContinue}>
+    <form>
       <ul>
         {questionsPartial.map(data => (
           <li key={data.name}>
@@ -44,8 +29,6 @@ const StepFour =({ step, setStep, form, setForm }) => {
           </li>
         ))}
       </ul>
-      <Button onClick={handleBack}>Back</Button>      
-      <Button type='submit'>Submit</Button>
     </form>
   )
 }

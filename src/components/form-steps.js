@@ -10,8 +10,6 @@ const FormSteps = (step, setStep, form, setForm) => [
     title: 'Basic User Details',
     content: (
       <StepOne 
-        setStep={setStep}
-        step={step}
         form={form}
         setForm={setForm}
       />
@@ -21,8 +19,6 @@ const FormSteps = (step, setStep, form, setForm) => [
     title: 'Skip Step Three?',
     content: (
       <StepTwo 
-        setStep={setStep}
-        step={step}
         form={form}
         setForm={setForm}
       />
@@ -32,8 +28,6 @@ const FormSteps = (step, setStep, form, setForm) => [
     title: 'Questions 1 and 2',
     content: (
       <StepThree 
-        setStep={setStep}
-        step={step}
         form={form}
         setForm={setForm}
       />
@@ -43,8 +37,6 @@ const FormSteps = (step, setStep, form, setForm) => [
     title: 'Questions 3 and 4',
     content: (
       <StepFour 
-        setStep={setStep}
-        step={step}
         form={form}
         setForm={setForm}
       />

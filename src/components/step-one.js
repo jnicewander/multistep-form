@@ -1,11 +1,8 @@
 import React from 'react'
-
 import TextInput from '../common/text-input'
-import Button from '../common/button'
-
 import { textInputData } from '../utils/data-source'
 
-const StepOne = ({ step, setStep, form, setForm }) => {
+const StepOne = ({ form, setForm }) => {
   
   const handleChange = ({ target }) => {
     setForm({
@@ -14,14 +11,9 @@ const StepOne = ({ step, setStep, form, setForm }) => {
     })
   }
 
-  const handleContinue = (e) => {
-    e.preventDefault()
-    setStep(step + 1)
-  }
 
   return (
-    <form onSubmit={handleContinue}>
-
+    <form>
       <ul>
         {textInputData.map(data => (
           <li key={data.name}>
@@ -35,7 +27,6 @@ const StepOne = ({ step, setStep, form, setForm }) => {
           </li>
         ))}
       </ul>      
-      <Button type='submit'>Continue</Button>
     </form>
   )
 }
