@@ -1,11 +1,12 @@
 import React from 'react'
-import TextInput from '../common/text-input'
+import TextArea from '../common/text-area'
+
 import { questionData } from '../utils/data-source'
 
 // This could be more dynamic, divide the length of the array into equal parts maybe
 const questionsPartial = questionData.slice(2, 4)
 
-const StepFour =({ form, setForm, step, setStep }) => {
+const StepFour =({ form, setForm }) => {
 
   const handleChange = ({ target }) => {
     setForm({
@@ -19,7 +20,7 @@ const StepFour =({ form, setForm, step, setStep }) => {
       <ul>
         {questionsPartial.map(data => (
           <li key={data.name}>
-            <TextInput 
+            <TextArea 
               type={data.type}
               name={data.name}
               value={form[data.name]}

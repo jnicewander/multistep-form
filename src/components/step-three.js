@@ -1,10 +1,10 @@
 import React from 'react'
-import TextInput from '../common/text-input'
+import TextArea from '../common/text-area'
 import { questionData } from '../utils/data-source'
 
 const questionsPartial = questionData.slice(0, 2)
 
-const StepThree =({ form, setForm, step, setStep }) => {
+const StepThree =({ form, setForm }) => {
 
   const handleChange = ({ target }) => {
     setForm({
@@ -18,7 +18,7 @@ const StepThree =({ form, setForm, step, setStep }) => {
       <ul>
         {questionsPartial.map(data => (
             <li key={data.name}>
-              <TextInput 
+              <TextArea 
                 type={data.type}
                 name={data.name}
                 value={form[data.name]}
