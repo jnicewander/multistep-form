@@ -5,7 +5,7 @@ const Label = styled.label`
   margin-left: 10px;
 `
 
-const Checkbox = ({ label, error, name, value, checked, onChange }) => {
+const Checkbox = ({ label, error, name, value, checked, onChange, ...rest }) => {
   return (
     <>
       <input
@@ -13,7 +13,8 @@ const Checkbox = ({ label, error, name, value, checked, onChange }) => {
         name={name}
         value={value}
         checked={checked}
-        onChange={onChange} 
+        onChange={onChange}
+        {...rest}
       />    
       <Label>{label}</Label>
     </>
