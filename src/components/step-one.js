@@ -10,8 +10,6 @@ const StepOne = ({ form, setForm }) => {
       payload: { [target.name]: target.value },      
     })
   }
-
-
   return (
     <>
       <ul>

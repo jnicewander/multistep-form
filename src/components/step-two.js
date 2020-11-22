@@ -1,5 +1,6 @@
 import React from 'react'
 import Checkbox from '../common/checkbox'
+import Checkboxes from '../common/checkbox-group'
 import RadioInput from '../common/radio-input'
 
 import { checkboxData, radioGroupData } from '../utils/data-source'
@@ -33,6 +34,12 @@ const StepTwo =({ form, setForm }) => {
 
   return (
     <>
+      <Checkboxes 
+        legend='This is my new Checkbox group!'
+        source={checkboxData}
+        checked={form[checkboxData.name] === checkboxData.value}
+        onChange={(e) => handleCheck(e)}
+      />
       <span>Choose any checkboxes you're fond of.</span>
       <ul>
         {checkboxData.map(data => (

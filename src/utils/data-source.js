@@ -31,18 +31,22 @@ export const checkboxData = [
   {
     name: 'checkboxOne',
     value: 'Checkbox One',
+    label: 'Checkbox One',
   },
   {
     name: 'checkboxTwo',
     value: 'Checkbox Two',
+    label: 'Checkbox Two',
   },
   {
     name: 'checkboxThree',
     value: 'Checkbox Three',
+    label: 'Checkbox Three',
   },
   {
     name: 'checkboxFour',
     value: 'Checkbox Four',
+    label: 'Checkbox Four',
   },
 ]
 // Radio Button Group
