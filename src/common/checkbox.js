@@ -5,15 +5,18 @@ const Label = styled.label`
   margin-left: 10px;
 `
 
-const Checkbox = ({ label, error, ...rest }) => {
+const Checkbox = ({ label, error, name, value, checked, onChange }) => {
   return (
-    <div>
+    <>
       <input
-        type='checkbox' 
-        {...rest}
+        type='checkbox'
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={onChange} 
       />    
       <Label>{label}</Label>
-    </div>
+    </>
   )
 }
 
