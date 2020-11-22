@@ -5,11 +5,13 @@ import StepThree from './step-three'
 import StepFour from './step-four'
 import Complete from './complete'
 
-const FormSteps = (form, setForm) => [
+const FormSteps = (step, setStep, form, setForm) => [
   {
     title: 'Basic User Details',
     content: (
-      <StepOne 
+      <StepOne
+        setStep={setStep}
+        step={step} 
         form={form}
         setForm={setForm}
       />
@@ -18,7 +20,9 @@ const FormSteps = (form, setForm) => [
   {
     title: 'Skip Step Three?',
     content: (
-      <StepTwo 
+      <StepTwo
+        setStep={setStep}
+        step={step} 
         form={form}
         setForm={setForm}
       />
@@ -27,7 +31,9 @@ const FormSteps = (form, setForm) => [
   {
     title: 'Questions 1 and 2',
     content: (
-      <StepThree 
+      <StepThree
+        setStep={setStep}
+        step={step} 
         form={form}
         setForm={setForm}
       />
@@ -36,7 +42,9 @@ const FormSteps = (form, setForm) => [
   {
     title: 'Questions 3 and 4',
     content: (
-      <StepFour 
+      <StepFour
+        setStep={setStep}
+        step={step} 
         form={form}
         setForm={setForm}
       />
@@ -45,7 +53,9 @@ const FormSteps = (form, setForm) => [
   {
     title: 'Form Complete!',
     content: (
-      <Complete 
+      <Complete
+        setStep={setStep}
+        step={step} 
         form={form}
       />
     ),
