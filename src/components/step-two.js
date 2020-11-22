@@ -3,10 +3,11 @@ import Checkbox from '../common/checkbox'
 import Checkboxes from '../common/checkbox-group'
 import RadioInput from '../common/radio-input'
 
-import { checkboxData, radioGroupData } from '../utils/data-source'
+import { checkboxData, checkboxGroupData, radioGroupData } from '../utils/data-source'
 
 const StepTwo =({ form, setForm }) => {
   // TODO: Refactor change handlers into one.
+
   const handleChange = ({ target }) => {
     setForm({
       type: 'STEP_TWO',
@@ -28,16 +29,13 @@ const StepTwo =({ form, setForm }) => {
     }
   }
 
-  
-
-  
-
   return (
     <>
+      {/* Passing in the form is not optimal, search for a cleaner solution */}
       <Checkboxes 
         legend='This is my new Checkbox group!'
-        source={checkboxData}
-        checked={form[checkboxData.name] === checkboxData.value}
+        source={checkboxGroupData}
+        form={form}
         onChange={(e) => handleCheck(e)}
       />
       <span>Choose any checkboxes you're fond of.</span>
@@ -69,7 +67,7 @@ const StepTwo =({ form, setForm }) => {
             />
           </li>
         ))}
-      </ul>
+      </ul>      
     </>
   )
 }

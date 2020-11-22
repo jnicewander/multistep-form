@@ -4,7 +4,7 @@ import { questionData } from '../utils/data-source'
 
 const questionsPartial = questionData.slice(0, 2)
 
-const StepThree =({ form, setForm }) => {
+const StepThree =({ form, setForm, step, setStep }) => {
 
   const handleChange = ({ target }) => {
     setForm({

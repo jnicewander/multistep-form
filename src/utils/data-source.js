@@ -27,7 +27,7 @@ export const textInputData = [
   },
 ]
 // Checkboxes
-export const checkboxData = [
+export const checkboxGroupData = [
   {
     name: 'checkboxOne',
     value: 'Checkbox One',
@@ -47,6 +47,28 @@ export const checkboxData = [
     name: 'checkboxFour',
     value: 'Checkbox Four',
     label: 'Checkbox Four',
+  },
+]
+export const checkboxData = [
+  {
+    name: 'soloCheckOne',
+    value: 'Solo Check One',
+    label: 'Solo Check One',
+  },
+  {
+    name: 'soloCheckTwo',
+    value: 'Solo Check Two',
+    label: 'Solo Check Two',
+  },
+  {
+    name: 'soloCheckThree',
+    value: 'Solo Check Three',
+    label: 'Solo Check Three',
+  },
+  {
+    name: 'soloCheckFour',
+    value: 'Solo Check Four',
+    label: 'Solo Check Four',
   },
 ]
 // Radio Button Group
