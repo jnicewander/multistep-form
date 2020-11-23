@@ -40,6 +40,11 @@ export const FormReducer = (form, { type, payload }) => {
         ...form,
         ...payload,
       }
+    case 'STEP_FIVE':
+      return {
+        ...form,
+        ...payload,
+      }
     default:
       return form
   }

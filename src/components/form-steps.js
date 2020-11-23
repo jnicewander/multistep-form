@@ -4,6 +4,7 @@ import StepTwo from './step-two'
 import StepThree from './step-three'
 import StepFour from './step-four'
 // import StepFive from './step-five'
+import ReviewInputs from './review-inputs'
 
 import Complete from './complete'
 
@@ -63,6 +64,17 @@ const FormSteps = (step, setStep, form, setForm) => [
   //     />
   //   ),
   // },
+  {
+    title: 'Review Your Entries',
+    content: (
+      <ReviewInputs
+        setStep={setStep}
+        step={step} 
+        form={form}
+        setForm={setForm}
+      />
+    ),
+  },
   {
     title: 'Form Complete!',
     content: (

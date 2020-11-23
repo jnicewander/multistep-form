@@ -22,7 +22,7 @@ const Form = () => {
   let [step, setStep] = useState(0)
   const [form, setForm] = useReducer(FormReducer, DefaultForm)
   let steps = FormSteps(step, setStep, form, setForm)
-
+  console.log(steps.length)
   const handleContinue = (e) => {
     e.preventDefault()
     if (form.skipNextStep === "Yes" && step === 1) {
@@ -50,7 +50,7 @@ const Form = () => {
       </Container>
       <ButtonContainer>
         <Button onClick={handleBack}>Back</Button>
-        <Button onClick={handleContinue}>{step === 3 ? 'Submit' : 'Continue'}</Button>
+        <Button onClick={handleContinue}>{step === steps.length - 2 ? 'Submit' : 'Continue'}</Button>
       </ButtonContainer>
     </>
   )
