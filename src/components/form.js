@@ -49,7 +49,9 @@ const Form = () => {
         <form>{steps[`${step}`].content}</form>
       </Container>
       <ButtonContainer>
-        <Button onClick={handleBack}>Back</Button>
+        {step > 0 &&
+          <Button onClick={handleBack}>Back</Button>
+        }
         <Button onClick={handleContinue}>{step === steps.length - 2 ? 'Submit' : 'Continue'}</Button>
       </ButtonContainer>
     </>
