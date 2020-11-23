@@ -3,6 +3,8 @@ import StepOne from './step-one'
 import StepTwo from './step-two'
 import StepThree from './step-three'
 import StepFour from './step-four'
+// import StepFive from './step-five'
+
 import Complete from './complete'
 
 const FormSteps = (step, setStep, form, setForm) => [
@@ -50,6 +52,17 @@ const FormSteps = (step, setStep, form, setForm) => [
       />
     ),
   },
+  // {
+  //   title: 'Select Tag',
+  //   content: (
+  //     <StepFive
+  //       setStep={setStep}
+  //       step={step} 
+  //       form={form}
+  //       setForm={setForm}
+  //     />
+  //   ),
+  // },
   {
     title: 'Form Complete!',
     content: (

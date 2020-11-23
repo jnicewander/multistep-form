@@ -26,6 +26,7 @@ export const textInputData = [
     label: 'Company',
   },
 ]
+
 // Checkboxes
 export const checkboxGroupData = [
   {
@@ -71,11 +72,13 @@ export const checkboxData = [
     label: 'Solo Check Four',
   },
 ]
+
 // Radio Button Group
 export const radioGroupData = {
   name: 'skipNextStep',
   values: ['Yes', 'No'],
 }
+
 // Questions
 export const questionData = [
   {
@@ -98,4 +101,11 @@ export const questionData = [
     name: 'question4',
     label: 'Question four?',
   },
+]
+
+// Select Element - Work in Progress
+export const selectData = [
+  { value: 'Blue', label: 'Blue' },
+  { value: 'Red', label: 'Red' },
+  { value: 'Green', label: 'Green' },
 ]
