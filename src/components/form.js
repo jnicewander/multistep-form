@@ -3,8 +3,9 @@ import React, { useReducer, useState } from 'react'
 import { FormReducer, DefaultForm } from '../utils/form-reducer'
 import FormSteps from './form-steps'
 import Button from '../common/button'
-import { submitForm } from '../utils/fetch'
+// import { submitForm } from '../utils/fetch'
 import styled from 'styled-components'
+import ProgressBar from '../components/progress-bar'
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const Form = () => {
   let [step, setStep] = useState(0)
   const [form, setForm] = useReducer(FormReducer, DefaultForm)
   let steps = FormSteps(step, setStep, form, setForm)
-  console.log(steps.length)
+
   const handleContinue = (e) => {
     e.preventDefault()
     if (form.skipNextStep === "Yes" && step === 1) {
@@ -54,6 +55,10 @@ const Form = () => {
         }
         <Button onClick={handleContinue}>{step === steps.length - 2 ? 'Submit' : 'Continue'}</Button>
       </ButtonContainer>
+      <ProgressBar
+        steps={steps}
+        stepNumber={step}
+      />
     </>
   )
 }
