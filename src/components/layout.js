@@ -7,8 +7,9 @@ import "./layout.css"
 
 // Sticky footer
 const PageContainer = styled.div`
-  position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `
 const GlobalStyle = createGlobalStyle`
   ul, li {
@@ -18,27 +19,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 `
-// Sticky footer
 const Main = styled.main`
-  padding-bottom: 2.5rem;
-`
-const Container = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0 1.0875rem 1.45rem;
+  flex: 1 0 auto;
 `
 const Footer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+  flex-shrink: 0;
+  background-color: #000;
   color: white;
   padding: 2rem;
-  background-color: black;
-  margin-top: 2rem;
-  
-  > a {
+  >a {
     color: white;
   }
 `
@@ -58,12 +47,12 @@ const Layout = ({ children }) => {
     <PageContainer>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata?.title || `Multistep Form`} />
-        <main>{children}</main>
-        <Footer>
-          © {new Date().getFullYear()}, Built by
-          {` `}
-          <a href="https://github.com/jnicewander">Justin Nicewander</a>
-        </Footer>
+      <Main>{children}</Main>
+      <Footer>
+        © {new Date().getFullYear()}, Built by
+        {` `}
+        <a href="https://github.com/jnicewander">Justin Nicewander</a>
+      </Footer>
     </PageContainer>
   )
 }
