@@ -46,19 +46,24 @@ const Form = () => {
   return (
     <>
       <Container>
-        <h2>{steps[`${step}`].title} - Step {step + 1}/{steps.length}</h2>
+        <h2>{steps[`${step}`].title}</h2>
+        <ProgressBar
+          steps={steps}
+          stepNumber={step}
+        />
         <form>{steps[`${step}`].content}</form>
       </Container>
       <ButtonContainer>
-        {step > 0 &&
-          <Button onClick={handleBack}>Back</Button>
+        {
+          step > 0 &&
+            <Button onClick={handleBack}>Back</Button>
         }
-        <Button onClick={handleContinue}>{step === steps.length - 2 ? 'Submit' : 'Continue'}</Button>
+        {
+          step < steps.length -1 &&
+            <Button onClick={handleContinue}>{step === steps.length - 2 ? 'Submit' : 'Continue'}</Button>
+        }
       </ButtonContainer>
-      <ProgressBar
-        steps={steps}
-        stepNumber={step}
-      />
+      
     </>
   )
 }

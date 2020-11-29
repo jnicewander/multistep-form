@@ -6,10 +6,10 @@ const FlexRow = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: .5rem 0;
 `
 const Divider = styled.div`
-  width: 50px;
+  width: 40px;
   height: 5px;
   border-radius: 10px;
   background-color: ${ props => props.fill };
@@ -44,7 +44,7 @@ const ProgressBar = ({ steps, stepNumber }) => {
                 inner={ stepNumber > index ? '\\2713' : index + 1 }
                 border={ stepNumber > index ? 'none' : '2px solid lightgrey' }
                 background={ stepNumber > index ? 'lightblue' : 'none' }
-                size={ stepNumber === index ? '60px' : '40px' }
+                size={ stepNumber === index ? '35px' : '25px' }
               />
             </>
           ))
